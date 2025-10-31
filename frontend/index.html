@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление контентом</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>Управление контентом</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link active" data-tab="home">Главная</a></li>
+                <li id="upload-tab" style="display: none;"><a href="#upload" class="nav-link" data-tab="upload">Загрузить</a></li>
+                <li id="browse-tab" style="display: none;"><a href="#browse" class="nav-link" data-tab="browse">Просмотр</a></li>
+                <li id="auth-controls">
+                    <button id="show-login">Войти</button>
+                    <button id="show-register">Регистрация</button>
+                    <button id="logout" style="display: none;">Выйти</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Формы -->
+    <section id="login" class="tab-content" style="display: none;">
+        <h2>Вход</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="login-username">Имя пользователя:</label>
+                <input type="text" id="login-username" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Пароль:</label>
+                <input type="password" id="login-password" required>
+            </div>
+            <button type="submit">Войти</button>
+        </form>
+    </section>
+
+    <section id="register" class="tab-content" style="display: none;">
+        <h2>Регистрация</h2>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="register-username">Имя пользователя:</label>
+                <input type="text" id="register-username" required>
+            </div>
+            <div class="form-group">
+                <label for="register-password">Пароль:</label>
+                <input type="password" id="register-password" required>
+            </div>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </section>
+
+    <!-- Главная -->
+    <section id="home" class="tab-content active">
+        <h2>Добро пожаловать!</h2>
+        <p id="welcome-message">Пожалуйста, войдите или зарегистрируйтесь.</p>
+        <div class="stats" id="stats" style="display: none;">
+            <div class="stat-item">
+                <h3>Файлы</h3>
+                <span id="file-count">0</span>
+            </div>
+            <div class="stat-item">
+                <h3>Изображения</h3>
+                <span id="image-count">0</span>
+            </div>
+            <div class="stat-item">
+                <h3>Сообщения</h3>
+                <span id="text-count">0</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Загрузка -->
+    <section id="upload" class="tab-content" style="display: none;">
+        <h2>Загрузить контент</h2>
+
+        <!-- Текст -->
+        <div class="upload-form">
+            <h3>Текстовое сообщение</h3>
+            <form id="text-form">
+                <div class="form-group">
+                    <label for="text-title">Заголовок:</label>
+                    <input type="text" id="text-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="text-content">Текст:</label>
+                    <textarea id="text-content" rows="4" required></textarea>
+                </div>
+                <button type="submit">Опубликовать</button>
+            </form>
+        </div>
+
+        <!-- Изображение -->
+        <div class="upload-form">
+            <h3>Изображение</h3>
+            <form id="image-form">
+                <div class="form-group">
+                    <label for="image-title">Заголовок:</label>
+                    <input type="text" id="image-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="image-file">Выберите изображение:</label>
+                    <input type="file" id="image-file" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label for="image-description">Описание:</label>
+                    <textarea id="image-description" rows="2"></textarea>
+                </div>
+                <button type="submit">Загрузить</button>
+            </form>
+        </div>
+
+        <!-- Файл -->
+        <div class="upload-form">
+            <h3>Файл</h3>
+            <form id="file-form">
+                <div class="form-group">
+                    <label for="file-title">Заголовок:</label>
+                    <input type="text" id="file-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="file-upload">Выберите файл:</label>
+                    <input type="file" id="file-upload" required>
+                </div>
+                <div class="form-group">
+                    <label for="file-description">Описание:</label>
+                    <textarea id="file-description" rows="2"></textarea>
+                </div>
+                <button type="submit">Загрузить</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Просмотр -->
+    <section id="browse" class="tab-content" style="display: none;">
+        <h2>Просмотр контента</h2>
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="text">Тексты</button>
+            <button class="filter-btn" data-filter="image">Изображения</button>
+            <button class="filter-btn" data-filter="file">Файлы</button>
+        </div>
+        <div id="content-list" class="content-list"></div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; Работа выполнена Арестовой Александрой</p>
+    </div>
+</footer>
+
+<script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+SECRET_KEY=022e614f2f11701e624f8b8abf388de43cc8cc63b9b45ca40bc8c754bca58eda
+DATABASE_URL=postgresql://user:pass@db:5432/projectsw
+REDIS_URL=redis://redis:6379/0
+MAX_FILE_SIZE=10485760
